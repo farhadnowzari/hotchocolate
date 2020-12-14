@@ -2,15 +2,10 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state";
 import { toggleAside } from "../../state/common";
-import { Aside, BodyStyle, FixedContainer } from "./doc-page-elements";
+import { Aside, BodyStyle } from "./doc-page-elements";
 import { DocPagePaneHeader } from "./doc-page-pane-header";
-import { useStickyElement } from "./useStickyElement";
 
 export const DocPageAside: FunctionComponent = ({ children }) => {
-  const { containerRef, elementRef } = useStickyElement<
-    HTMLElement,
-    HTMLDivElement
-  >(1300);
   const showAside = useSelector<State, boolean>(
     (state) => state.common.showAside
   );
@@ -21,16 +16,14 @@ export const DocPageAside: FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <Aside ref={containerRef}>
+    <Aside className={showAside ? "show" : ""}>
       <BodyStyle disableScrolling={showAside} />
-      <FixedContainer ref={elementRef} className={showAside ? "show" : ""}>
         <DocPagePaneHeader
           title="About this article"
           showWhenScreenWidthIsSmallerThan={1300}
           onClose={handleCloseAside}
         />
         {children}
-      </FixedContainer>
     </Aside>
   );
 };

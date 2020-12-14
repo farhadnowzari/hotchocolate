@@ -106,24 +106,27 @@ export const DocPageGraphQLFragment = graphql`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  grid-template-rows: 1fr;
   width: 100%;
-  max-width: 820px;
+  overflow: visible;
 
-  @media only screen and (min-width: 1070px) {
-    max-width: 1070px;
+  @media only screen and (max-width: 450px) {
+    grid-template-columns: 1fr;
   }
 
-  @media only screen and (min-width: 1320px) {
+  @media only screen and (min-width: 1321px) {
     max-width: 1320px;
   }
 `;
 
 const ResponsiveMenu = styled.div`
   position: fixed;
-  right: 0;
-  left: 0;
+  top: 60px;
+  right: 10px;
+  left: 260px;
+  box-sizing: border-box;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -135,31 +138,35 @@ const ResponsiveMenu = styled.div`
     rgba(255, 255, 255, 0.75) 100%
   );
 
-  @media only screen and (min-width: 820px) {
-    position: initial;
-    right: initial;
-    left: initial;
-    z-index: initial;
-    padding-right: 50px;
-    padding-left: 50px;
-    background: initial;
+  @media only screen and (max-width: 1170px) {
+    left: 10px;
   }
 
-  @media only screen and (min-width: 1070px) {
+  @media only screen and (max-width: 819px) {
+    left: 0;
+    right: 0;
+  }
+
+  @media only screen and (min-width: 820px) {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+
+  @media only screen and (min-width: 1071px) {
     > .toc-toggle {
       display: none;
     }
   }
 
-  @media only screen and (min-width: 1320px) {
+  @media only screen and (min-width: 1321px) {
     display: none;
   }
 `;
 
 const DocArticleTitle = styled(ArticleTitle)`
-  margin-top: 68px;
+  margin-top: 90px;
 
-  @media only screen and (min-width: 820px) {
+  @media only screen and (min-width: 1321px) {
     margin-top: 20px;
   }
 `;

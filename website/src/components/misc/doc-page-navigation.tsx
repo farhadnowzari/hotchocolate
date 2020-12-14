@@ -17,15 +17,12 @@ import {
   toggleTOC,
 } from "../../state/common";
 import {
-  BodyStyle,
-  FixedContainer,
   MostProminentSection,
   Navigation,
 } from "./doc-page-elements";
 import { DocPagePaneHeader } from "./doc-page-pane-header";
 import { IconContainer } from "./icon-container";
 import { Link } from "./link";
-import { useStickyElement } from "./useStickyElement";
 
 import ArrowDownIconSvg from "../../images/arrow-down.svg";
 import ArrowUpIconSvg from "../../images/arrow-up.svg";
@@ -44,10 +41,6 @@ export const DocPageNavigation: FunctionComponent<DocPageNavigationProperties> =
   selectedProduct,
   selectedVersion,
 }) => {
-  const { containerRef, elementRef } = useStickyElement<
-    HTMLElement,
-    HTMLDivElement
-  >(1050);
   const expandedPaths = useSelector<State, string[]>(
     (state) => state.common.expandedPaths
   );
@@ -185,12 +178,10 @@ export const DocPageNavigation: FunctionComponent<DocPageNavigationProperties> =
   }, [activeProduct, selectedPath, selectedProduct]);
 
   return (
-    <Navigation ref={containerRef}>
-      <BodyStyle disableScrolling={showTOC} />
-      <FixedContainer ref={elementRef} className={showTOC ? "show" : ""}>
+    <Navigation className={showTOC ? "show" : ""}>
         <DocPagePaneHeader
           title="Table of contents"
-          showWhenScreenWidthIsSmallerThan={1050}
+          showWhenScreenWidthIsSmallerThan={1071}
           onClose={handleCloseTOC}
         />
         <ProductSwitcher>
@@ -280,7 +271,6 @@ export const DocPageNavigation: FunctionComponent<DocPageNavigationProperties> =
             )}
           </MostProminentSection>
         )}
-      </FixedContainer>
     </Navigation>
   );
 };
@@ -382,9 +372,9 @@ const ProductSwitcherDialog = styled.div<{ open: boolean }>`
   background-color: #fff;
 
   @media only screen and (min-width: 1070px) {
+    top: 135px;
     position: fixed;
     z-index: 10;
-    top: 150px;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 14px;

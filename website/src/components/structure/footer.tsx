@@ -116,14 +116,11 @@ export const Footer: FunctionComponent = () => {
 };
 
 const Container = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+
   padding: 40px 20px 60px;
   width: 100%;
-  min-height: 300px;
   background-color: #252d3c;
   color: #c6c6ce;
 

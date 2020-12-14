@@ -2,23 +2,37 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html {
+    height: 100%;
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    width: 100vw;
-    height: 100vh;
+    display: block;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
     font-size: 18px;
     line-height: 30px;
-    background-color: #252d3c;
     color: #667;
     overflow-x: hidden;
     scroll-behavior: smooth;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    > div {
+      height: 100%;
+      > div {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 60px auto;
+        grid-template-columns: 1fr;
+      }
+    }
   }
 
   * {

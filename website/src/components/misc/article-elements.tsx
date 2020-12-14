@@ -5,6 +5,17 @@ export const ArticleWrapper = styled.div`
   flex: 1 1 auto;
   flex-direction: column;
 
+  grid-row: 1;
+  grid-column: 2;
+
+  @media only screen and (max-width: 1320px) {
+    grid-column: 2 / 4;
+  }
+
+  @media only screen and (max-width: 1070px) {
+    grid-column: 1 / 4;
+  }
+
   @media only screen and (min-width: 820px) {
     padding: 20px 10px 0;
   }

@@ -5,6 +5,7 @@ export interface CommonState {
   showCookieConsent: boolean;
   showTOC: boolean;
   showLegacyDocInfo: boolean;
+  yScrollPosition: number;
 }
 
 export const initialState: CommonState = {
@@ -14,4 +15,5 @@ export const initialState: CommonState = {
   showCookieConsent: false,
   showTOC: false,
   showLegacyDocInfo: false,
+  yScrollPosition: 0,
 };

@@ -35,3 +35,5 @@ export const toggleTOC = createAction("[Common] Toggle table of contents pane");
 export const toggleNavigationGroup = createAction<{ readonly path: string }>(
   "[Common] Toggle navigation group"
 );
+
+export const hasScrolled = createAction<{readonly yScrollPosition: number}>("[Common] The main view container has scrolled");
