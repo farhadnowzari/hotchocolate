@@ -413,7 +413,7 @@ public class Book
 // BookType.cs
 public class BookType : ObjectType<Book>
 {
-    protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
+    protected override void Configure(IObjectTypeDescriptor<Book> descriptor)
     {
         descriptor
             .Field(f => f.Title)
